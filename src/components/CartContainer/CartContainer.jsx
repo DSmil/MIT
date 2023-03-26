@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { MdOutlineKeyboardBackspace } from "react-icons/md"
 import { motion } from "framer-motion"
 import { RiRefreshFill } from "react-icons/ri"
-import { actionType } from "../context/reducer";
-import { useStateValue } from "../context/StateProvider";
-import EmptyCart from "./img/emptyCart.svg"
-import { CartItem } from './index';
+import { actionType } from "context/reducer";
+import { useStateValue } from "context/StateProvider";
+import EmptyCart from "assets/img/emptyCart.svg"
+import { CartItem } from 'components/index';
 
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();

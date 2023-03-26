@@ -1,7 +1,7 @@
 import React from "react";
-import Delivery from "./img/delivery.png";
-import Herobg from "./img/heroBg.png"
-import { heroData } from "../utils/data";
+import Delivery from "assets/img/delivery.png";
+import Herobg from "assets/img/heroBg.png"
+import { heroData } from "utils/data";
 
 function HomeContainer() {
     return (

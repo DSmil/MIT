@@ -1,15 +1,14 @@
 import { React, useState } from 'react'
 import { motion } from "framer-motion"
-
 import { MdFastfood, MdCloudUpload, MdDelete, MdFoodBank, MdAttachMoney } from "react-icons/md"
-import { categories } from '../utils/data'
-import Loader from './Loader'
+import { categories } from 'utils/data'
+import Loader from 'components/Loader/Loader'
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
-import { storage } from "../firebase.config"
-import { saveItem } from '../utils/firebaseFunctions'
-import { useStateValue } from "../context/StateProvider";
-import { getAllFoodItems } from "../utils/firebaseFunctions";
-import { actionType } from "../context/reducer";
+import { storage } from "firebase.config"
+import { saveItem } from 'utils/firebaseFunctions'
+import { useStateValue } from "context/StateProvider";
+import { getAllFoodItems } from "utils/firebaseFunctions";
+import { actionType } from "context/reducer";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");

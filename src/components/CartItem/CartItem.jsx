@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { BiMinus, BiPlus } from "react-icons/bi"
 import { motion } from "framer-motion"
-import { useStateValue } from "../context/StateProvider";
-import { actionType } from '../context/reducer';
+import { useStateValue } from "context/StateProvider";
+import { actionType } from 'context/reducer';
 let items = []
 
 const CartItem = ({ item, setFlag, flag }) => {

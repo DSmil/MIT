@@ -1,15 +1,13 @@
 import { React, useState } from "react";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { app } from "../firebase.config";
-
-import Logo from "./img/logo.png";
-import Avatar from "./img/avatar.png";
+import { app } from "firebase.config";
+import Logo from "assets/img/logo.png";
+import Avatar from "assets/img/avatar.png";
 import { Link } from "react-router-dom";
-import { useStateValue } from "../context/StateProvider";
-import { actionType } from "../context/reducer";
+import { useStateValue } from "context/StateProvider";
+import { actionType } from "context/reducer";
 
 function Header() {
     const firebaseAuth = getAuth(app);

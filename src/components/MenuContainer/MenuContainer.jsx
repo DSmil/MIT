@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { IoFastFood } from 'react-icons/io5'
-import { categories } from '../utils/data'
+import { categories } from 'utils/data'
 import { motion } from "framer-motion"
-import { RowContainer } from "./index"
-import { useStateValue } from '../context/StateProvider'
+import { RowContainer } from "components/index"
+import { useStateValue } from 'context/StateProvider'
 
 function MenuContainer() {
 

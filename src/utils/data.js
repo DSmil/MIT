@@ -1,7 +1,7 @@
-import c7 from "../components/img/c7.png";
-import fi2 from "../components/img/fi2.png";
-import c3 from "../components/img/c3.png";
-import fi1 from "../components/img/fi1.png";
+import c7 from "assets/img/c7.png";
+import fi2 from "assets/img/fi2.png";
+import c3 from "assets/img/c3.png";
+import fi1 from "assets/img/fi1.png";
 
 export const heroData = [
 	{

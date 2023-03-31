@@ -6,6 +6,7 @@ import { actionType } from "context/reducer";
 import { useStateValue } from "context/StateProvider";
 import EmptyCart from "assets/img/emptyCart.svg"
 import { CartItem } from 'components/index';
+import { CartContainerBox, BackspaceIcon, CardHeader } from './style';
 
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -37,15 +38,14 @@ const CartContainer = () => {
     };
 
     return (
-        <motion.div
+        <CartContainerBox
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 200 }}
-            className="fixed top-0 right-0 w-full md:w-375 h-screen bg-white drop-shadow-md flex flex-col z-[101]"
         >
-            <div className="w-full flex items-center justify-between p-4 cursor-pointer">
+            <CardHeader>
                 <motion.div whileTap={{ scale: 0.75 }} onClick={showCart}>
-                    <MdOutlineKeyboardBackspace className="text-textColor text-3xl" />
+                    <BackspaceIcon />
                 </motion.div>
                 <p className="text-textColor text-lg font-semibold">Cart</p>
 
@@ -56,7 +56,7 @@ const CartContainer = () => {
                 >
                     Clear <RiRefreshFill />
                 </motion.p>
-            </div>
+            </CardHeader>
 
             {/* bottom section */}
             {cartItems && cartItems.length > 0 ? (
@@ -123,7 +123,7 @@ const CartContainer = () => {
                     </p>
                 </div>
             )}
-        </motion.div>
+        </CartContainerBox>
     );
 };
 

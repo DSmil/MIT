@@ -3,6 +3,7 @@ import { BiMinus, BiPlus } from "react-icons/bi"
 import { motion } from "framer-motion"
 import { useStateValue } from "context/StateProvider";
 import { actionType } from 'context/reducer';
+import {Item, Image, ItemNameDiv, ItemName, ItemPrice, ButtonDiv, NumberPlusMinus} from "./style";
 let items = []
 
 const CartItem = ({ item, setFlag, flag }) => {
@@ -51,23 +52,22 @@ const CartItem = ({ item, setFlag, flag }) => {
     }, [qty, items]);
 
     return (
-        <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
-            <img
+        <Item>
+            <Image
                 src={item?.imageURL}
-                className="w-20 h-20 max-w-[60px] rounded-full object-contain"
                 alt=""
             />
 
             {/* name section */}
-            <div className="flex flex-col gap-2">
-                <p className="text-base text-gray-50">{item?.title}</p>
-                <p className="text-sm block text-gray-300 font-semibold">
+            <ItemNameDiv>
+                <ItemName>{item?.title}</ItemName>
+                <ItemPrice>
                     {parseFloat(item?.price) * qty} den.
-                </p>
-            </div>
+                </ItemPrice>
+            </ItemNameDiv>
 
             {/* button section */}
-            <div className="group flex items-center gap-2 ml-auto cursor-pointer">
+            <ButtonDiv>
                 <motion.div
                     whileTap={{ scale: 0.75 }}
                     onClick={() => updateQty("remove", item?.id)}
@@ -75,9 +75,9 @@ const CartItem = ({ item, setFlag, flag }) => {
                     <BiMinus className="text-gray-50 " />
                 </motion.div>
 
-                <p className="w-5 h-5 rounded-sm bg-cartBg text-gray-50 flex items-center justify-center">
+                <NumberPlusMinus>
                     {qty}
-                </p>
+                </NumberPlusMinus>
 
                 <motion.div
                     whileTap={{ scale: 0.75 }}
@@ -85,8 +85,8 @@ const CartItem = ({ item, setFlag, flag }) => {
                 >
                     <BiPlus className="text-gray-50 " />
                 </motion.div>
-            </div>
-        </div>
+            </ButtonDiv>
+        </Item>
     );
 };
 

@@ -6,7 +6,7 @@ import { actionType } from "context/reducer";
 import { useStateValue } from "context/StateProvider";
 import EmptyCart from "assets/img/emptyCart.svg"
 import { CartItem } from 'components/index';
-import { CartContainerBox, BackspaceIcon, CardHeader } from './style';
+import { CartContainerBox, BackspaceIcon, CardHeader, CartText, CartClear, BackgroundSection, CartItemSection, WhenEmptyDiv, WhenEmptyText, CartTotalDiv, TotalDiv, TotalPrice, TotalText, Border, MotionButton2, MotionButton1, DeliveryText, DeliveryPrice, Delivery, SubTotalDiv, SubTotalText, SubTotalPrice} from './style';
 
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -47,22 +47,21 @@ const CartContainer = () => {
                 <motion.div whileTap={{ scale: 0.75 }} onClick={showCart}>
                     <BackspaceIcon />
                 </motion.div>
-                <p className="text-textColor text-lg font-semibold">Cart</p>
+                <CartText>Cart</CartText>
 
-                <motion.p
+                <CartClear
                     whileTap={{ scale: 0.75 }}
-                    className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-textColor text-base"
                     onClick={clearCart}
                 >
                     Clear <RiRefreshFill />
-                </motion.p>
+                </CartClear>
             </CardHeader>
 
             {/* bottom section */}
             {cartItems && cartItems.length > 0 ? (
-                <div className="w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col">
+                <BackgroundSection>
                     {/* cart Items section */}
-                    <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
+                    <CartItemSection>
                         {/* cart Item */}
                         {cartItems &&
                             cartItems.length > 0 &&
@@ -74,54 +73,52 @@ const CartContainer = () => {
                                     flag={flag}
                                 />
                             ))}
-                    </div>
+                    </CartItemSection>
 
                     {/* cart total section */}
-                    <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
-                        <div className="w-full flex items-center justify-between">
-                            <p className="text-gray-400 text-lg">Sub Total</p>
-                            <p className="text-gray-400 text-lg">{tot} den.</p>
-                        </div>
-                        <div className="w-full flex items-center justify-between">
-                            <p className="text-gray-400 text-lg">Delivery</p>
-                            <p className="text-gray-400 text-lg">100 den.</p>
-                        </div>
+                    <CartTotalDiv>
+                        <SubTotalDiv >
+                            <SubTotalText>Sub Total</SubTotalText>
+                            <SubTotalPrice>{tot} den.</SubTotalPrice>
+                        </SubTotalDiv>
+                        <Delivery>
+                            <DeliveryText>Delivery</DeliveryText>
+                            <DeliveryPrice>100 den.</DeliveryPrice>
+                        </Delivery>
 
-                        <div className="w-full border-b border-gray-600 my-2"></div>
+                        <Border></Border>
 
-                        <div className="w-full flex items-center justify-between">
-                            <p className="text-gray-200 text-xl font-semibold">Total</p>
-                            <p className="text-gray-200 text-xl font-semibold">
+                        <TotalDiv>
+                            <TotalText>Total</TotalText>
+                            <TotalPrice>
                                 {tot + 100} den.
-                            </p>
-                        </div>
+                            </TotalPrice>
+                        </TotalDiv>
 
                         {user ? (
-                            <motion.button
+                            <MotionButton1
                                 whileTap={{ scale: 0.8 }}
                                 type="button"
-                                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                             >
                                 Check Out
-                            </motion.button>
+                            </MotionButton1>
                         ) : (
-                            <motion.button
+                            <MotionButton2
                                 whileTap={{ scale: 0.8 }}
                                 type="button"
-                                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                             >
                                 Login to check out
-                            </motion.button>
+                            </MotionButton2>
                         )}
-                    </div>
-                </div>
+                    </CartTotalDiv>
+                </BackgroundSection>
             ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center gap-6">
+                <WhenEmptyDiv>
                     <img src={EmptyCart} className="w-300" alt="" />
-                    <p className="text-xl text-textColor font-semibold">
+                    <WhenEmptyText>
                         Add some items to your cart
-                    </p>
-                </div>
+                    </WhenEmptyText>
+                </WhenEmptyDiv>
             )}
         </CartContainerBox>
     );

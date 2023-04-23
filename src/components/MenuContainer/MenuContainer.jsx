@@ -19,8 +19,8 @@ function MenuContainer() {
 
                 <PositioningItems>
                     {categories && categories.map((category) => (
-                        <WhenClicked whileTap={{ scale: 0.75 }} key={category.id} className={`group ${filter === category.urlParamName ? 'bg-cartNumBg' : 'bg-card'} `} onClick={() => setfilter(category.urlParamName)}>
-                            <HoverText className={`w-10 h-10 rounded-full shadow-lg ${filter === category.urlParamName ? 'bg-white' : 'bg-cartNumBg'} `}>
+                        <WhenClicked whileTap={{ scale: 0.75 }} key={category.id} filter={filter === category.urlParamName} onClick={() => setfilter(category.urlParamName)}>
+                            <HoverText filter={filter === category.urlParamName}>
                                 <IoFastFood
                                     className={`${filter === category.urlParamName ? 'text-textColor' : 'text-white'} group-hover:text-textColor text-lg`}
                                 />

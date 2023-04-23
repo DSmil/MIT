@@ -18,7 +18,7 @@ export const HotDish = styled.p`
 font-size: 2rem; /* text-2xl */
 font-weight: 600; /* font-semibold */
 text-transform: capitalize;
-color: var(--heading-color); /* text-headingColor */
+color:${({ theme }) => theme.colors.headingColor}; /* text-headingColor */
 position: relative;
 margin-right: auto; /* mr-auto */
 
@@ -56,49 +56,47 @@ scrollbar-width: none; /* scrollbar-none */
 `;
 
 export const WhenClicked = styled(motion.div)`
-/* Custom styles for clickable card */
-width: 6rem; /* w-24 */
-min-width: 94px; /* min-w-[94px] */
-height: 7rem; /* h-28 */
-cursor: pointer;
-border-radius: 0.75rem; /* rounded-lg */
-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* drop-shadow-xl */
-display: flex;
-flex-direction: column;
-gap: 0.75rem; /* gap-3 */
-align-items: center;
-justify-content: center;
-transition: background-color 0.2s ease;
+  width: 6rem; // w-24
+  min-width: 94px; // min-w-[94px]
+  height: 7rem; // h-28
+  cursor: pointer;
+  border-radius: 0.75rem; // rounded-lg
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // drop-shadow-xl
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; // gap-3
+  align-items: center;
+  justify-content: center;
+  background-color:'blue';
+  transition: background-color 0.2s ease;
 
-/* Apply hover style */
-&:hover {
-  background-color: var(--cartNumBg); /* hover:bg-cartNumBg */
-}
+  &:hover {
+    background-color: ${props => props.theme.cartNumBg}; // hover:bg-cartNumBg
+  }
 `;
 
 export const HoverText = styled.div`
 
-/* Custom styles for hoverable text */
-width: 2.5rem; /* w-10 */
-height: 2.5rem; /* h-10 */
-border-radius: 50%; /* rounded-full */
-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* shadow-lg */
-display: flex;
-align-items: center;
-justify-content: center;
-transition: background-color 0.2s ease;
+  width: 2.5rem; // w-10
+  height: 2.5rem; // h-10
+  border-radius: 100%; // rounded-full
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); // shadow-lg
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ filter, theme }) => filter ? theme.colors.cartNumBg : theme.colors.cartBg};
+  transition: background-color 0.2s ease;
 
-/* Apply hover style */
-&:hover {
-  background-color: var(--white);
-}
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.white}; // hover:bg-white
+  }
 `;
 
 export const Categorys = styled.p`
 
 /* Apply hover style */
 &:hover {
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.white};
 }
 
 /* Other styles */

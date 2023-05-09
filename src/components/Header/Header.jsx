@@ -8,6 +8,7 @@ import Avatar from "assets/img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "context/StateProvider";
 import { actionType } from "context/reducer";
+import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText } from "./style";
 
 function Header() {
     const firebaseAuth = getAuth(app);
@@ -48,21 +49,19 @@ function Header() {
         });
     }
     return (
-        <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
+        <StyledHeader>
             {/* desktop & tablet */}
-            <div className="hidden md:flex w-full h-full items-center justify-between">
-                <Link
+            <DesktopContainer>
+                <LogoLink
                     to={"/"}
                     whileTap={{ scale: 0.6 }}
-                    className="flex items-center gap-2"
                 >
-                    <img
+                    <LogoImage
                         src={Logo}
                         alt="Logo"
-                        className="w-8 object-cover"
                     />
-                    <p className="text-headingColor text-xl font-bold">Gostilnica Cuna</p>
-                </Link>
+                    <LogoText>Gostilnica Cuna</LogoText>
+                </LogoLink>
 
                 <div className="flex items-center gap-8">
                     <motion.ul
@@ -135,7 +134,7 @@ function Header() {
                         )}
                     </div>
                 </div>
-            </div>
+            </DesktopContainer>
 
             {/* mobile */}
             <div className="flex item-center justify-between md:hidden w-full h-full ">
@@ -233,7 +232,7 @@ function Header() {
                     )}
                 </div>
             </div>
-        </header>
+        </StyledHeader>
     );
 }
 

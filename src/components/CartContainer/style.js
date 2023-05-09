@@ -19,7 +19,7 @@ export const CartContainerBox = styled(motion.div)`
 `;
 
 export const BackspaceIcon = styled(MdOutlineKeyboardBackspace)`
-  color: var(--textColor); /* equivalent to text-textColor */
+  color: ${props => props.theme.primary}; /* equivalent to text-textColor */
   font-size: 2rem; /* equivalent to text-3xl */
 `;
 

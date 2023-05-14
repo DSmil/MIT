@@ -8,7 +8,7 @@ import Avatar from "assets/img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "context/StateProvider";
 import { actionType } from "context/reducer";
-import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText, BigDiv, List, ListItems, MotionDivCart, DivInsideCart, ParInsideDiv, MotionDivNewItemLogout, NewItem, AvatarImg, AvatarDiv} from "./style";
+import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText, BigDiv, List, ListItems, MotionDivCart, DivInsideCart, ParInsideDiv, MotionDivNewItemLogout, NewItemLink, NewItem, AvatarImg, AvatarDiv} from "./style";
 
 function Header() {
     const firebaseAuth = getAuth(app);
@@ -111,14 +111,14 @@ function Header() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.6 }}
                             >
-                                {user && user.email === "restoranaplikacija@gmail.com" && (
-                                    <Link to="/createItem">
+                                {user && user.email === "mitproject77@gmail.com" && (
+                                    <NewItemLink to="/createItem">
                                         <NewItem
                                             onClick={() => setItemMenu(false)}
                                         >
                                             New Item <MdAdd />
                                         </NewItem>
-                                    </Link>
+                                    </NewItemLink>
                                 )}
                                 <NewItem
                                     onClick={logout}

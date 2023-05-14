@@ -4,11 +4,10 @@ import { categories } from 'utils/data'
 import Loader from 'components/Loader/Loader'
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import { storage } from "firebase.config"
-import { saveItem } from 'utils/firebaseFunctions'
+import { saveItem, getAllFoodItems} from 'utils/firebaseFunctions'
 import { useStateValue } from "context/StateProvider";
-import { getAllFoodItems } from "utils/firebaseFunctions";
 import { actionType } from "context/reducer";
-import {BigContainer, NextContainer, MotionP, ButtonDeleteImage, SaveButton, SaveDiv, PriceInput, SetPriceDiv, CaloriesInput, SetCaloriesDiv, SetCaloriesAndPriceDiv, Option2, ImageDiv, Image, UploadText, InputAfterText, Label, AfterLabelUploadDiv, UploadDiv, TitleDiv, TitleInput, Option, SelectCategory, SelectCategoryDiv} from "./style";
+import {BigContainer, MainContainer, MotionP, ButtonDeleteImage, SaveButton, SaveDiv, PriceInput, SetPriceDiv, DescrInput, SetDescrDiv, SetDescrAndPriceDiv, Option2, ImageDiv, Image, UploadText, InputAfterText, Label, AfterLabelUploadDiv, UploadDiv, TitleDiv, TitleInput, Option, SelectCategory, SelectCategoryDiv} from "./style";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -141,7 +140,7 @@ const CreateContainer = () => {
 
   return (
     <BigContainer>
-      <NextContainer>
+      <MainContainer>
         {fields && (
           <MotionP
             initial={{ opacity: 0 }}
@@ -159,7 +158,7 @@ const CreateContainer = () => {
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Give me a title..."
+            placeholder="Name the product ..."
           />
         </TitleDiv>
 
@@ -224,17 +223,17 @@ const CreateContainer = () => {
           )}
         </UploadDiv>
 
-        <SetCaloriesAndPriceDiv>
-          <SetCaloriesDiv>
+        <SetDescrAndPriceDiv>
+          <SetDescrDiv>
             <MdFoodBank className="text-gray-700 text-2xl" />
-            <CaloriesInput
+            <DescrInput
               type="text"
               required
               value={calories}
               onChange={(e) => setCalories(e.target.value)}
-              placeholder="Calories"
+              placeholder="Description"
             />
-          </SetCaloriesDiv>
+          </SetDescrDiv>
 
           <SetPriceDiv>
             <MdAttachMoney className="text-gray-700 text-2xl" />
@@ -246,7 +245,7 @@ const CreateContainer = () => {
               placeholder="Price"
             />
           </SetPriceDiv>
-        </SetCaloriesAndPriceDiv>
+        </SetDescrAndPriceDiv>
 
         <SaveDiv>
           <SaveButton
@@ -256,7 +255,7 @@ const CreateContainer = () => {
             Save
           </SaveButton>
         </SaveDiv>
-      </NextContainer>
+      </MainContainer>
     </BigContainer>
   );
 };

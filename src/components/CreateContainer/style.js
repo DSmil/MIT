@@ -9,7 +9,7 @@ export const BigContainer = styled.div`
   justify-content: center;
 `;
 
-export const NextContainer = styled.div`
+export const MainContainer = styled.div`
   width: 90%;
   max-width: 50%;
   border: 1px solid #ccc;
@@ -35,7 +35,7 @@ export const MotionP = styled(motion.p)`
 
 export const TitleDiv = styled.div`
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-bottom: 1px solid #D1D5DB;
   display: flex;
   align-items: center;
@@ -164,42 +164,42 @@ export const ButtonDeleteImage = styled.button`
   }
 `;
 
-export const SetCaloriesAndPriceDiv = styled.div`
+export const SetDescrAndPriceDiv = styled.div`
+  width:100%;
+  height:50px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-
+  margin-bottom:10px;
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: center;
   }
 `;
 
-export const SetCaloriesDiv = styled.div`
-  width: 100%;
-  padding: 0 0 2rem;
+export const SetDescrDiv = styled.div`
+  width: 85%;
+  padding-top: 1rem;
   border-bottom: 1px solid #d1d5db;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 `;
 
-export const CaloriesInput = styled.input`
+export const DescrInput = styled.input`
   width: 100%;
   height: 100%;
   font-size: 1.125rem;
   background-color: transparent;
   outline: none;
   border: none;
-  ::placeholder {
-    color: #a5a5a5;
-  }
-  color: #515151;
+  placeholder: text-gray-400;
+  color: var(--text-color);
 `;
 
 export const SetPriceDiv = styled.div`
-  width: 100%;
-  padding: 2rem 0; /*padding: 0 0 2rem; */
+  width: 15%;
+  padding-top: 1rem;
   border-bottom: 1px solid #ccc; /*d1d5db */
   display: flex;
   align-items: center;
@@ -209,12 +209,12 @@ export const SetPriceDiv = styled.div`
 export const PriceInput = styled.input`
   width: 100%;
   height: 100%;
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
   background-color: transparent;
   outline: none;
   border: none;
   placeholder: text-gray-400;
-  color: #515151;
+  color: var(--text-color);
 `;
 
 export const SaveDiv = styled.div`

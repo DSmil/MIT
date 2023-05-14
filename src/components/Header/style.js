@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom';
@@ -10,7 +9,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 100px;
   padding: 3px 4px;
-  background-color: "#f5f3f3";
+  background-color: #f5f3f3;
   @media (min-width: 768px) {
     padding: 6px 16px;
   }
@@ -62,10 +61,10 @@ export const List = styled(motion.ul)`
 
 export const ListItems = styled.li`
   font-size: 1.2rem;
-  color: "#2e2e2e";
+  color: #2e2e2e;
   margin-right: 8px;
   &:hover {
-    color: "#2e2e2e";
+    color: #2e2e2e;
   }
   transition: all 0.1s ease-in-out;
   cursor: pointer;
@@ -76,6 +75,11 @@ export const MotionDivCart = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  margin-right: 8px;
+  svg {
+    font-size: 2rem; /* Adjust the size as needed */
+  }
 `;
 
 export const DivInsideCart = styled.div`
@@ -131,4 +135,8 @@ export const AvatarImg = styled(motion.img)`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   border-radius: 50%;
+`;
+
+export const AvatarDiv = styled.div`
+  position: relative;
 `;

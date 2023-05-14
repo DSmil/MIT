@@ -8,7 +8,7 @@ import Avatar from "assets/img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "context/StateProvider";
 import { actionType } from "context/reducer";
-import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText, BigDiv, List, ListItems, MotionDivCart, DivInsideCart, ParInsideDiv, MotionDivNewItemLogout, NewItem, AvatarImg} from "./style";
+import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText, BigDiv, List, ListItems, MotionDivCart, DivInsideCart, ParInsideDiv, MotionDivNewItemLogout, NewItem, AvatarImg, AvatarDiv} from "./style";
 
 function Header() {
     const firebaseAuth = getAuth(app);
@@ -95,7 +95,7 @@ function Header() {
                         )}
                     </MotionDivCart>
 
-                    <div className="relative">
+                    <AvatarDiv>
                         <AvatarImg
                             whileTap={{ scale: 0.6 }}
                             src={user ? user?.photoURL : Avatar}
@@ -127,11 +127,11 @@ function Header() {
                                 </NewItem>
                             </MotionDivNewItemLogout>
                         )}
-                    </div>
+                    </AvatarDiv>
                 </BigDiv>
             </DesktopContainer>
 
-            {/* mobile */}
+            {/* mobile 
             <div className="flex item-center justify-between md:hidden w-full h-full ">
                 <motion.div
                     whileTap={{ scale: 0.6 }}
@@ -226,7 +226,7 @@ function Header() {
                         </motion.div>
                     )}
                 </div>
-            </div>
+            </div>*/}
         </StyledHeader>
     );
 }

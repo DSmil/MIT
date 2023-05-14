@@ -108,3 +108,40 @@ export const DivofRowContainer = styled.div`
 width: 100%; /* w-full */
 `;
 
+export const StyledCard = styled.div`
+  background-color: ${({ filter, category }) => filter === category.urlParamName ? "#FDE68A" : "#F9FAFB"};
+  width: 6rem;
+  min-width: 94px;
+  height: 7rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  
+  &:hover {
+    background-color: #FDE68A;
+  }
+`;
+
+export const CustomClass = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  min-width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 9999px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover,
+  &.bg-cartNumBg {
+    background-color: #059669;
+    color: #ffffff;
+  }
+`;

@@ -8,7 +8,7 @@ import Avatar from "assets/img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "context/StateProvider";
 import { actionType } from "context/reducer";
-import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText } from "./style";
+import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText, BigDiv, List, ListItems, MotionDivCart, DivInsideCart, ParInsideDiv, MotionDivNewItemLogout, NewItem, AvatarImg, AvatarDiv} from "./style";
 
 function Header() {
     const firebaseAuth = getAuth(app);
@@ -63,80 +63,75 @@ function Header() {
                     <LogoText>Gostilnica Cuna</LogoText>
                 </LogoLink>
 
-                <div className="flex items-center gap-8">
-                    <motion.ul
+                <BigDiv>
+                    <List
                         initial={{ opacity: 0, x: 200 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 200 }}
-                        className="flex items-center gap-8 "
                     >
-                        <li className="text-base text-headingColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                        <ListItems>
                             Home
-                        </li>
-                        <li className="text-base text-headingColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                        </ListItems>
+                        <ListItems>
                             Menu
-                        </li>
-                        <li className="text-base text-headingColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                        </ListItems>
+                        <ListItems>
                             About Us
-                        </li>
-                        <li className="text-base text-headingColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                        </ListItems>
+                        <ListItems>
                             Service
-                        </li>
-                    </motion.ul>
+                        </ListItems>
+                    </List>
 
-                    <motion.div
+                    <MotionDivCart
                         whileTap={{ scale: 0.6 }}
-                        className="relative flex items-center justify-center"
                         onClick={showCart}
                     >
                         <MdShoppingBasket className="text-textColor text-2xl ml-8 cursor-pointer" />
                         {cartItems && cartItems.length > 0 && (
-                            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-                                <p className="text-xs text-white font-semibold">{cartItems.length}</p>
-                            </div>
+                            <DivInsideCart>
+                                <ParInsideDiv>{cartItems.length}</ParInsideDiv>
+                            </DivInsideCart>
                         )}
-                    </motion.div>
+                    </MotionDivCart>
 
-                    <div className="relative">
-                        <motion.img
+                    <AvatarDiv>
+                        <AvatarImg
                             whileTap={{ scale: 0.6 }}
                             src={user ? user?.photoURL : Avatar}
-                            className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-2xl cursor-pointer rounded-full"
                             alt="userprofile"
                             onClick={login}
                         />
                         {isMenu && (
-                            <motion.div
+                            <MotionDivNewItemLogout
                                 initial={{
                                     opacity: 0,
                                     scale: 0.6,
                                 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.6 }}
-                                className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 "
                             >
                                 {user && user.email === "restoranaplikacija@gmail.com" && (
                                     <Link to="/createItem">
-                                        <p className="m-2 p-2 rounded-md flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                                        <NewItem
                                             onClick={() => setItemMenu(false)}
                                         >
                                             New Item <MdAdd />
-                                        </p>
+                                        </NewItem>
                                     </Link>
                                 )}
-                                <p
-                                    className="m-2 p-2 rounded-md flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                                <NewItem
                                     onClick={logout}
                                 >
                                     Logout <MdLogout></MdLogout>
-                                </p>
-                            </motion.div>
+                                </NewItem>
+                            </MotionDivNewItemLogout>
                         )}
-                    </div>
-                </div>
+                    </AvatarDiv>
+                </BigDiv>
             </DesktopContainer>
 
-            {/* mobile */}
+            {/* mobile 
             <div className="flex item-center justify-between md:hidden w-full h-full ">
                 <motion.div
                     whileTap={{ scale: 0.6 }}
@@ -231,7 +226,7 @@ function Header() {
                         </motion.div>
                     )}
                 </div>
-            </div>
+            </div>*/}
         </StyledHeader>
     );
 }

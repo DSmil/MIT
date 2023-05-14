@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import HomeContainer from "components/HomeContainer/HomeContainer";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md"
-import { RowContainer } from "components/index"
+import { RowContainer, MenuContainer, CartContainer} from "components/index"
 import { useStateValue } from "context/StateProvider";
-import { MenuContainer } from "components/index"
-import { CartContainer } from "components/index"
+import {BigDiv, Section, OutDiv, InDiv, DelitiousFood, MotionDiv} from "./style";
 
 function MainContainer() {
   const [{ foodItems, cartShow }, dispatch] = useStateValue()
@@ -14,35 +13,34 @@ function MainContainer() {
   useEffect(() => { }, [scrollValue])
 
   return (
-    <div className="w-full h-auto flex flex-col items-center justify-center">
+    <BigDiv>
       <HomeContainer />
 
-      <section className="w-full my-6">
-        <div className="w-full flex items-center justify-between">
-          <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg
-          before:content before:w-32 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">Our delitious food</p>
-
-          <div className="hidden md:flex gap-3 felx item-center">
-            <motion.div onClick={() => setscrollValue(-200)} whileTap={{ scale: 0.75 }} className="w-8 h-8 rounded-lg bg-orange-300 hover:bg-orange-500 cursor-pointer flex items-center justify-center">
+      <Section>
+        <OutDiv>
+          <DelitiousFood>Our delitious food</DelitiousFood>
+          
+          <InDiv >
+            <MotionDiv onClick={() => setscrollValue(-200)} whileTap={{ scale: 0.75 }}>
               <MdChevronLeft className="text-lg text-white"></MdChevronLeft>
-            </motion.div>
-            <motion.div onClick={() => setscrollValue(200)} whileTap={{ scale: 0.75 }} className="w-8 h-8 rounded-lg bg-orange-300 hover:bg-orange-500 cursor-pointer flex items-center justify-center">
+            </MotionDiv>
+            <MotionDiv onClick={() => setscrollValue(200)} whileTap={{ scale: 0.75 }}>
               <MdChevronRight className="text-lg text-white"></MdChevronRight>
-            </motion.div>
-          </div>
+            </MotionDiv>
+          </InDiv>
 
-        </div>
+        </OutDiv>
 
         <RowContainer
           scrollValue={scrollValue}
           flag={true}
           data={foodItems?.filter(n => n.category === "chicken")} />
-      </section>
+      </Section>
 
       <MenuContainer />
       {cartShow && (<CartContainer />)}
 
-    </div>
+    </BigDiv>
   );
 }
 

@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
+import { MdShoppingBasket, MdAdd, MdLogout, MdHome, MdAdminPanelSettings } from "react-icons/md";
 import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "firebase.config";
@@ -64,24 +64,7 @@ function Header() {
                 </LogoLink>
 
                 <BigDiv>
-                    <List
-                        initial={{ opacity: 0, x: 200 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 200 }}
-                    >
-                        <ListItems>
-                            Home
-                        </ListItems>
-                        <ListItems>
-                            Menu
-                        </ListItems>
-                        <ListItems>
-                            About Us
-                        </ListItems>
-                        <ListItems>
-                            Service
-                        </ListItems>
-                    </List>
+                    
 
                     <MotionDivCart
                         whileTap={{ scale: 0.6 }}
@@ -112,6 +95,15 @@ function Header() {
                                 exit={{ opacity: 0, scale: 0.6 }}
                             >
                                 {user && user.email === "mitproject77@gmail.com" && (
+                                    <NewItemLink to="/*">
+                                        <NewItem
+                                            onClick={() => setItemMenu(false)}
+                                        >
+                                            Home <MdHome />
+                                        </NewItem>
+                                    </NewItemLink>
+                                )}
+                                {user && user.email === "mitproject77@gmail.com" && (
                                     <NewItemLink to="/createItem">
                                         <NewItem
                                             onClick={() => setItemMenu(false)}
@@ -119,6 +111,16 @@ function Header() {
                                             New Item <MdAdd />
                                         </NewItem>
                                     </NewItemLink>
+                                )}
+                                {user && user.email === "mitproject77@gmail.com" && (
+                                    <NewItemLink to="/admin">
+                                        <NewItem
+                                            onClick={() => setItemMenu(false)}
+                                        >
+                                            Admin Page <MdAdminPanelSettings />
+                                        </NewItem>
+                                    </NewItemLink>
+                                    
                                 )}
                                 <NewItem
                                     onClick={logout}

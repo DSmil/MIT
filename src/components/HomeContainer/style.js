@@ -88,49 +88,56 @@ export const WholeContainer = styled.section`
   grid-template-columns: repeat(1, minmax(0, 1fr)); /* equivalent to grid-cols-1 */
   gap: 0.5rem; /* equivalent to gap-2 */
   width: 100%; /* equivalent to w-full */
-  
+  margin-left: 20px;
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* equivalent to md:grid-cols-2 */
   }
 `;
 
 export const RightContainer = styled.div`
-  padding-top: 0.5rem; /* equivalent to py-2 */
-  flex: 1; /* equivalent to flex-1 */
-  align-items: center; /* equivalent to items-center */
-  position: relative; /* equivalent to relative */
+  padding-top: 0.5rem;
+  flex: 1;
+  align-items: center; 
+  position: relative; 
+  display: flex;
+  flex-direction: column;
 `;
 
 export const BackgroundImage = styled.img`
-  margin-left: auto; /* equivalent to ml-auto */
-  height: 400px; /* equivalent to h-400 */
-  width: 100%; /* equivalent to w-full */
+  margin-left: auto; 
+  height: 400px; 
+  width: 100%; 
+  position: absolute;
+  top: 0;
+  right: 15%;
   @media (min-width: 1024px) {
-    width: auto; /* equivalent to lg:w-auto */
-    height: 650px; /* equivalent to lg:h-650 */
+    width: auto; 
+    height: 650px; 
   }
 `;
 
 export const ImagesContainer = styled.div`
-  width: 580px; /* equivalent to w-full */
-  height: 100%; /* equivalent to h-full */
-  position: absolute;  /*required for top-0 and left-0 to work */
-  top: 0; /* equivalent to top-0 */
-  right: 0; /* equivalent to left-0 */
-  display: flex; /* equivalent to flex */
-  align-items: center; /* equivalent to items-center */
-  justify-content: right; /* equivalent to justify-center */
-  padding: 4px; /* equivalent to py-4 px-4 */
-  gap: 4px; /* equivalent to gap-4 */
-  flex-wrap: wrap; /* equivalent to flex-wrap */
+  width: 600px; 
+  height: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 4px;
+  gap: 4px;
+  flex-wrap: wrap; 
+  flex-grow:1;
+  margin-left: auto;
+  margin-right: 10%;
   @media (min-width: 1024px) {
-    padding-left: 32px; /* equivalent to lg:px-32 */
-    padding-right: 32px; /* equivalent to lg:px-32 */
+    padding-left: 32px; 
+    padding-right: 32px;
+    justify-content: flex-end; 
   }
 `;
 
 export const NoClue = styled.div`
   padding: 4px; 
+  margin:40px 25px;
   background-color: "rgba(256,256,256,0.4)"; 
   backdrop-filter: blur(9px);
   border-radius: 48px;

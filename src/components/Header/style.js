@@ -102,15 +102,42 @@ export const ParInsideDiv = styled.p`
 `;
 
 export const MotionDivNewItemLogout = styled(motion.div)`
-  width: 40px;
+  width: 150px;
   background-color: #F9FAFB;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 12px;
-  right: 0;
+  top: 46px;
+  right: 6px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 12px 8px;
+    border-color: transparent transparent #F9FAFB transparent;
+  }
+`;
+
+export const NewItemLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--textColor);
+  &:visited {
+    color: var(--textColor); /* Use the same color as the default state */
+  }
+  &:active,
+  &:focus {
+    outline: none; /* Optional: Remove focus outline */
+  }
 `;
 
 export const NewItem = styled.p`

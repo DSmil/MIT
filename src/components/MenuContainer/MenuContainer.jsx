@@ -18,9 +18,9 @@ function MenuContainer() {
     const inactiveClassName = 'bg-cartNumBg';
 
     return (
-        <section className="sectionn" id="menu">
+      <section className="sectionn" id="menu">
         <div className="outerLayer">
-          <p className="makes"> Our Hot Dishes
+          <p className="makes"> Our Categories
           </p>
   
           <div className="scrolli">
@@ -58,7 +58,7 @@ function MenuContainer() {
           <div className="sectionn">
             <RowContainer
               flag={false}
-              data={foodItems?.filter((n) => n.category == filter)}
+              data={foodItems?.filter((n) => n.category === filter)}
             />
           </div>
         </div>

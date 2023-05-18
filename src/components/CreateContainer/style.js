@@ -145,22 +145,27 @@ export const Image = styled.img`
 `;
 
 export const ButtonDeleteImage = styled.button`
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-  padding: 1rem;
-  border-radius: 50%;
-  background-color: #f87171;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
+  position: absolute; 
+  bottom: 0; 
+  right: 0;
+  width: 40px; 
+  height: 40px;
+  border: none;
   outline: none;
-  transition-duration: 500ms;
-  transition-property: all;
-  transition-timing-function: ease-in-out;
+  background-color: #e53e3e;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #c53030;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05),
+      0 4px 8px rgba(0, 0, 0, 0.05), 0 8px 16px rgba(0, 0, 0, 0.05);
   }
 `;
 

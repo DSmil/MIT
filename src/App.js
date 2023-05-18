@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "App.css";
 import { AnimatePresence } from "framer-motion";
-import { MainContainer, CreateContainer, Header } from "components";
+import { MainContainer, CreateContainer, Header, AdminCheck } from "components";
 import { useStateValue } from "context/StateProvider";
 import { getAllFoodItems } from "utils/firebaseFunctions";
 import { actionType } from "context/reducer";
@@ -36,6 +36,11 @@ function App() {
 						<Route
 							path="/createItem"
 							element={<CreateContainer />}
+						/>
+						<Route 
+							path="/admin" 
+							element={<AdminCheck />}
+
 						/>
 					</Routes>
 				</main>

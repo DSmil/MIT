@@ -7,3 +7,4 @@ export { default as RowContainer } from "components/RowContainer/RowContainer";
 export { default as MenuContainer } from "components/MenuContainer/MenuContainer";
 export { default as CartContainer } from "components/CartContainer/CartContainer";
 export { default as CartItem } from "components/CartItem/CartItem";
+export { default as AdminCheck } from "components/AdminCheck/AdminCheck";

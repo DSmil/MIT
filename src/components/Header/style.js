@@ -76,7 +76,7 @@ export const MotionDivCart = styled(motion.div)`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-right: 8px;
+  margin-right: 20px;
   svg {
     font-size: 2rem; /* Adjust the size as needed */
   }
@@ -102,7 +102,7 @@ export const ParInsideDiv = styled.p`
 `;
 
 export const MotionDivNewItemLogout = styled(motion.div)`
-  width: 150px;
+  width: 200px;
   background-color: #F9FAFB;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;

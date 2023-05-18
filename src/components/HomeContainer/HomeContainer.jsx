@@ -18,18 +18,17 @@ function HomeContainer() {
                     </ImageDiv>
                 </DeliveryDiv>
                 <Title>
-                    The Fastest delivery in{" "}
+                    Electronic device for the {" "}
                     <TitleSpan>
-                        Shtip
+                        Best Price
                     </TitleSpan>
                 </Title>
 
                 <Text>
-                    You can enojy in our delitious food at our restourant or get our food
-                    delivered to your home. All orders for delivery must be made online or
-                    over the phone!
+                    You can browse in our inventory for an economic device that meets your needs. 
+                    Or you can Upload your device and we can give you some refund upon inspection.
                 </Text>
-
+                we dont need the button
                 <ButtonOrderNow type="buttom">
                     Order Now
                 </ButtonOrderNow>

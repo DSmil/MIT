@@ -7,7 +7,7 @@ import { useStateValue } from "context/StateProvider";
 import {BigDiv, Section, OutDiv, InDiv, DelitiousFood, MotionDiv} from "./style";
 
 const MainContainer = () => {
-  const [{ foodItems, cartShow }, dispatch] = useStateValue();
+  const [{ deviceItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
 
   useEffect(() => {}, [scrollValue, cartShow]);
@@ -42,7 +42,7 @@ const MainContainer = () => {
         <RowContainer
           scrollValue={scrollValue}
           flag={true}
-          data={foodItems?.filter((n) => n.category === "fruits")}
+          data={deviceItems?.filter((n) => n.category === "fruits")}
         />
       </section>
 

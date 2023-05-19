@@ -37,38 +37,62 @@ export const heroData = [
 export const categories = [
 	{
 		id: 1,
-		name: "Chicken",
-		urlParamName: "chicken",
+		name: "Television & Home Theater",
+		urlParamName: "television-home-theater",
 	},
 	{
 		id: 2,
-		name: "Curry",
-		urlParamName: "curry",
+		name: "Computers & Laptops",
+		urlParamName: "computers-laptops",
 	},
 	{
 		id: 3,
-		name: "Rice",
-		urlParamName: "rice",
+		name: "Smartphones & Tablets",
+		urlParamName: "smartphones-tablets",
 	},
 	{
 		id: 4,
-		name: "Fish",
-		urlParamName: "fish",
+		name: "Gaming",
+		urlParamName: "gaming",
 	},
 	{
 		id: 5,
-		name: "Fruits",
-		urlParamName: "fruits",
+		name: "Cameras & Photography",
+		urlParamName: "cameras-photography",
 	},
 	{
 		id: 6,
-		name: "Icecreams",
-		urlParamName: "icecreams",
+		name: "Audio",
+		urlParamName: "audio",
 	},
-
 	{
 		id: 7,
-		name: "Soft Drinks",
-		urlParamName: "drinks",
+		name: "Wearable Technology",
+		urlParamName: "wearable-technology",
+	},
+	{
+		id: 8,
+		name: "Networking & Smart Home",
+		urlParamName: "networking-smart-home",
+	},
+	{
+		id: 9,
+		name: "Printers & Office Equipment",
+		urlParamName: "printers-office-equipment",
+	},
+	{
+		id: 10,
+		name: "Appliances",
+		urlParamName: "appliances",
+	},
+	{
+		id: 11,
+		name: "Components & Storage",
+		urlParamName: "components-storage",
+	},
+	{
+		id: 12,
+		name: "Software",
+		urlParamName: "software",
 	},
 ];

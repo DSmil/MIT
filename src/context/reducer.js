@@ -1,8 +1,11 @@
 export const actionType = {
 	SET_USER: "SET_USER",
-	SET_FOOD_ITEMS: "SET_FOOD_ITEMS",
+	SET_DEVICE_ITEMS: "SET_DEVICE_ITEMS",
 	SET_CART_SHOW: "SET_CART_SHOW",
 	SET_CARTITEMS: "CARTITEMS",
+	SET_REQUESTED_ITEMS: "SET_REQUESTED_ITEMS",
+	SET_ACCEPTED_ITEMS: "SET_ACCEPTED_ITEMS",
+	SET_DECLINED_ITEMS: "SET_DECLINED_ITEMS",
 };
 
 const reducer = (state, action) => {
@@ -13,10 +16,10 @@ const reducer = (state, action) => {
 				user: action.user,
 			};
 
-		case actionType.SET_FOOD_ITEMS:
+		case actionType.SET_DEVICE_ITEMS:
 			return {
 				...state,
-				foodItems: action.foodItems,
+				deviceItems: action.deviceItems,
 			};
 		case actionType.SET_CART_SHOW:
 			return {
@@ -28,6 +31,21 @@ const reducer = (state, action) => {
 				...state,
 				cartItems: action.cartItems,
 			};
+		case actionType.SET_REQUESTED_ITEMS:
+			return {
+				...state,
+				requestedDevices: action.requestedDevices,
+			}
+		case actionType.SET_ACCEPTED_ITEMS:
+			return {
+				...state,
+				acceptedDevices: action.acceptedDevices,
+			}
+		case actionType.SET_DECLINED_ITEMS:
+			return {
+				...state,
+				declinedDevices: action.declinedDevices,
+			}
 		default:
 			return state;
 	}

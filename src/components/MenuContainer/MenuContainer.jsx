@@ -11,7 +11,7 @@ function MenuContainer() {
 
     const [filter, setfilter] = useState("chicken")
 
-    const [{ foodItems }, dispatch] = useStateValue()
+    const [{ deviceItems }, dispatch] = useStateValue()
 
     const baseClassName = 'w-10 h-10 rounded-full shadow-lg flex items-center justify-center';
     const activeClassName = 'bg-white';
@@ -58,7 +58,7 @@ function MenuContainer() {
           <div className="sectionn">
             <RowContainer
               flag={false}
-              data={foodItems?.filter((n) => n.category === filter)}
+              data={deviceItems?.filter((n) => n.category === filter)}
             />
           </div>
         </div>

@@ -1,76 +1,83 @@
-import React from 'react'
-import {BigContainer, MainContainer, PriceDiv, Price, Accepts, Declines, DivWrapper, Div1, Div2, TitleDiv, Title, NameDiv, NameOfUser, DescrDiv, DescrOfRequest} from "./style";
+import React, { useEffect } from 'react';
+import {
+	BigContainer,
+	MainContainer,
+	PriceDiv,
+	Price,
+	Accepts,
+	Declines,
+	DivWrapper,
+	Div1,
+	Div2,
+	TitleDiv,
+	Title,
+	NameDiv,
+	NameOfUser,
+	DescrDiv,
+	DescrOfRequest,
+} from './style';
+import { useStateValue } from 'context/StateProvider';
+import { RequestedCardItems } from 'components';
+import {
+	getAllDeclinedData,
+	getAllAcceptedData,
+} from 'utils/firebaseFunctions';
+import { actionType } from 'context/reducer';
+import { fetchUser } from 'utils/fetchLocalStorageData';
 
 const UserRequests = () => {
-    return (
-        <BigContainer>
-            <MainContainer>
+	const [{ declinedDevices, acceptedDevices }, dispatch] = useStateValue();
+	const userInfo = fetchUser();
+	const fetchData = async () => {
+		await getAllDeclinedData(userInfo.uid).then((data) => {
+            console.log(data)
+			dispatch({
+				type: actionType.SET_DECLINED_ITEMS,
+				declinedDevices: data,
+			});
+		});
 
-                <TitleDiv>
-                    <Title>
-                        Results from requests
-                    </Title>
-                </TitleDiv>
+		await getAllAcceptedData(userInfo.uid).then((data) => {
+            console.log(data)
+			dispatch({
+				type: actionType.SET_ACCEPTED_ITEMS,
+				acceptedDevices: data,
+			});
+		});
+	};
 
-                <DivWrapper>
-                
-                    <Accepts>
-                        <TitleDiv>
-                            <Title>
-                                Accepted
-                            </Title>
-                        </TitleDiv>
-                        <Div1>
-                            <NameDiv>
-                                <NameOfUser>
-                                    name of user
-                                </NameOfUser>
-                            </NameDiv>
-                            <DescrDiv>
-                                <DescrOfRequest>
-                                    Descr goes here Descr goes here Descr goes here Descr goes here Descr goes here 
-                                    Descr goes here Descr goes here Descr goes here Descr goes here 
-                                </DescrOfRequest>
-                            </DescrDiv>
-                            <PriceDiv>
-                                <Price>
-                                    Price: 100 euros
-                                </Price>
-                            </PriceDiv>
-                        </Div1>
-                    </Accepts>
+	useEffect(() => {
+		fetchData();
+	}, []);
+	return (
+		<BigContainer>
+			<MainContainer>
+				<TitleDiv>
+					<Title>Results from requests</Title>
+				</TitleDiv>
 
-                    <Declines>
-                        <TitleDiv>
-                            <Title>
-                                Declined
-                            </Title>
-                        </TitleDiv>
-                        <Div2>
-                            <NameDiv>
-                                <NameOfUser>
-                                    name of user
-                                </NameOfUser>
-                            </NameDiv>
-                            <DescrDiv>
-                                <DescrOfRequest>
-                                    Descr goes here Descr goes here Descr goes here Descr goes here Descr goes here 
-                                    Descr goes here Descr goes here Descr goes here Descr goes here 
-                                </DescrOfRequest>
-                            </DescrDiv>
-                            <PriceDiv>
-                                <Price>
-                                    Price: 200 euros
-                                </Price>
-                            </PriceDiv>
-                        </Div2>
-                    </Declines>
-                        
-                </DivWrapper>
-                
-            </MainContainer>
-        </BigContainer>
-    );
-  }
-  
-  export default UserRequests;
+				<DivWrapper>
+					<Accepts>
+						<TitleDiv>
+							<Title>Accepted</Title>
+						</TitleDiv>
+						{acceptedDevices && acceptedDevices.map((device) => {
+							return <RequestedCardItems device={device} />;
+						})}
+					</Accepts>
+
+					<Declines>
+						<TitleDiv>
+							<Title>Declined</Title>
+						</TitleDiv>
+						{declinedDevices && declinedDevices.map((device) => {
+							return <RequestedCardItems device={device} />;
+						})}
+					</Declines>
+				</DivWrapper>
+			</MainContainer>
+		</BigContainer>
+	);
+};
+
+export default UserRequests;

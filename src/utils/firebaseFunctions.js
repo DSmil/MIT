@@ -9,9 +9,9 @@ import {
 	orderBy,
 	deleteDoc,
 	addDoc,
+	where,
 } from 'firebase/firestore';
 import { firestore } from 'firebase.config';
-
 export const saveItem = async (data) => {
 	// Add a new document with a generated id.
 	const docRef = await addDoc(collection(firestore, 'requestItems'), data);
@@ -74,18 +74,28 @@ export const getAllRequestedData = async () => {
 	return items.docs.map((doc) => doc.data());
 };
 
-export const getAllDeclinedData = async () => {
-	const items = await getDocs(
-		query(collection(firestore, 'declinedItems'), orderBy('id', 'desc'))
-	);
+export const getAllDeclinedData = async (userId) => {
+	console.log(userId)
+    const items = await getDocs(
+        query(
+            collection(firestore, 'declinedItems'), 
+            where('userId', '==', userId), 
+            orderBy('id', 'desc')
+        )
+    );
+	console.log(items)
 
-	return items.docs.map((doc) => doc.data());
+    return items.docs.map((doc) => doc.data());
 };
 
-export const getAllAcceptedData = async () => {
-	const items = await getDocs(
-		query(collection(firestore, 'acceptedItems'), orderBy('id', 'desc'))
-	);
-
-	return items.docs.map((doc) => doc.data());
+export const getAllAcceptedData = async (userId) => {
+    const items = await getDocs(
+        query(
+            collection(firestore, 'acceptedItems'), 
+            where('userId', '==', userId), 
+            orderBy('id', 'desc')
+        )
+    );
+			console.log(items)
+    return items.docs.map((doc) => doc.data());
 };

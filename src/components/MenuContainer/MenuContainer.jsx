@@ -11,7 +11,7 @@ function MenuContainer() {
 
     const [filter, setfilter] = useState("chicken")
 
-    const [{ deviceItems }, dispatch] = useStateValue()
+    const [{ acceptedDevices }, dispatch] = useStateValue()
 
     const baseClassName = 'w-10 h-10 rounded-full shadow-lg flex items-center justify-center';
     const activeClassName = 'bg-white';
@@ -30,6 +30,7 @@ function MenuContainer() {
                   whileTap={{ scale: 0.75 }}
                   key={category.id}
                   className="custom-class"
+                  onClick={() => setfilter(category.urlParamName)}
                 >
                   <div
                     className={`${baseClassName} ${filter === category.urlParamName ? activeClassName : inactiveClassName} group-hover:bg-white`}
@@ -58,7 +59,7 @@ function MenuContainer() {
           <div className="sectionn">
             <RowContainer
               flag={false}
-              data={deviceItems?.filter((n) => n.category === filter)}
+              data={acceptedDevices?.filter((n) => n.category === filter)}
             />
           </div>
         </div>

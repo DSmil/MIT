@@ -10,9 +10,11 @@ import {
 	getAllDeclinedData,
 } from 'utils/firebaseFunctions';
 import { actionType } from 'context/reducer';
+import { fetchUser } from 'utils/fetchLocalStorageData';
 
 function App() {
 	const [{ deviceItems }, dispatch] = useStateValue();
+	const userInfo = fetchUser();
 
 	const fetchData = async () => {
 		await getAllRequestedData().then((data) => {
@@ -22,14 +24,14 @@ function App() {
 			});
 		});
 
-		await getAllAcceptedData().then((data) => {
+		await getAllAcceptedData(userInfo.uid).then((data) => {
 			dispatch({
 				type: actionType.SET_ACCEPTED_ITEMS,
 				acceptedDevices: data,
 			});
 		});
 
-		await getAllDeclinedData().then((data) => {
+		await getAllDeclinedData(userInfo.uid).then((data) => {
 			dispatch({
 				type: actionType.SET_DECLINED_ITEMS,
 				declinedDevices: data,

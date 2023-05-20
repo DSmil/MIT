@@ -97,7 +97,7 @@ export const DivInsideCart = styled.div`
 
 export const ParInsideDiv = styled.p`
   font-size: 0.75rem;
-  color: white;
+  color: black;
   font-weight: 600;
 `;
 

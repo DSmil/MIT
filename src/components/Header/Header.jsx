@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { MdShoppingBasket, MdAdd, MdLogout, MdHome, MdAdminPanelSettings } from "react-icons/md";
+import { MdShoppingBasket, MdAdd, MdLogout, MdHome, MdAdminPanelSettings, MdRequestPage } from "react-icons/md";
 import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "firebase.config";
@@ -108,7 +108,7 @@ function Header() {
                                         <NewItem
                                             onClick={() => setItemMenu(false)}
                                         >
-                                            New Item <MdAdd />
+                                            Upload Item <MdAdd />
                                         </NewItem>
                                     </NewItemLink>
                                 )}
@@ -118,6 +118,15 @@ function Header() {
                                             onClick={() => setItemMenu(false)}
                                         >
                                             Admin Page <MdAdminPanelSettings />
+                                        </NewItem>
+                                    </NewItemLink>
+                                    
+                                )}{user && user.email === "mitproject77@gmail.com" && (
+                                    <NewItemLink to="/userRequests">
+                                        <NewItem
+                                            onClick={() => setItemMenu(false)}
+                                        >
+                                            My Requests <MdRequestPage />
                                         </NewItem>
                                     </NewItemLink>
                                     

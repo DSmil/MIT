@@ -84,6 +84,7 @@ export const LeftContainer = styled.div`
 `;
 
 export const WholeContainer = styled.section`
+  padding-top:100px;
   display: grid; /* equivalent to grid */
   grid-template-columns: repeat(1, minmax(0, 1fr)); /* equivalent to grid-cols-1 */
   gap: 0.5rem; /* equivalent to gap-2 */

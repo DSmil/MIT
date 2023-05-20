@@ -9,3 +9,4 @@ export { default as CartContainer } from "components/CartContainer/CartContainer
 export { default as CartItem } from "components/CartItem/CartItem";
 export { default as AdminCheck } from "components/AdminCheck/AdminCheck";
 export { default as RequestedCardItems } from "components/RequestedCardItems/RequestedCardItems";
+export { default as UserRequests } from "components/UserRequests/UserRequests";

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import 'App.css';
 import { AnimatePresence } from 'framer-motion';
-import { MainContainer, CreateContainer, Header, AdminCheck } from 'components';
+import { MainContainer, CreateContainer, Header, AdminCheck, UserRequests } from 'components';
 import { useStateValue } from 'context/StateProvider';
 import {
 	getAllRequestedData,
@@ -58,6 +58,12 @@ function App() {
 						<Route
 							path='/admin'
 							element={<AdminCheck />}
+
+						/>
+						<Route
+							path="/userRequests"
+							element={<UserRequests />}
+
 						/>
 					</Routes>
 				</main>

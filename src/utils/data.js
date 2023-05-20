@@ -1,36 +1,38 @@
-import c7 from "assets/img/c7.png";
-import fi2 from "assets/img/fi2.png";
-import c3 from "assets/img/c3.png";
-import fi1 from "assets/img/fi1.png";
+
+import L1 from "assets/img/L1_HP.png";
+import L2 from "assets/img/L2_SAMSUNG.png";
+import L3 from "assets/img/L3_ACER.png";
+import L4 from "assets/img/L4_Lenovo.png";
+
 
 export const heroData = [
 	{
 		id: 1,
-		name: "Chicken",
-		decp: "with Fries & Salad",
+		name: "Laptop HP",
+		/*decp: "with Fries & Salad",*/
 		price: "300",
-		imageSrc: c7,
+		imageSrc: L1,
 	},
 	{
 		id: 2,
-		name: "Fish",
-		decp: "Grilled Fish",
+		name: "Laptop Samsung",
+		/*decp: "Grilled Fish",*/
 		price: "450",
-		imageSrc: fi2,
+		imageSrc: L2,
 	},
 	{
 		id: 3,
-		name: "Chicken",
-		decp: "mixed kebab Plate",
-		price: "280",
-		imageSrc: c3,
+		name: "Laptop Acer",
+		/*decp: "mixed kebab Plate",*/
+		price: "300",
+		imageSrc: L3,
 	},
 	{
 		id: 4,
-		name: "Fish",
-		decp: "Mixed Fish Kebab",
-		price: "300",
-		imageSrc: fi1,
+		name: "Laptop Lenovo",
+		/*decp: "Mixed Fish Kebab",*/
+		price: "450",
+		imageSrc: L4,
 	},
 ];
 
@@ -72,27 +74,12 @@ export const categories = [
 	},
 	{
 		id: 8,
-		name: "Networking & Smart Home",
-		urlParamName: "networking-smart-home",
-	},
-	{
-		id: 9,
 		name: "Printers & Office Equipment",
 		urlParamName: "printers-office-equipment",
 	},
 	{
-		id: 10,
-		name: "Appliances",
-		urlParamName: "appliances",
-	},
-	{
-		id: 11,
+		id: 9,
 		name: "Components & Storage",
 		urlParamName: "components-storage",
-	},
-	{
-		id: 12,
-		name: "Software",
-		urlParamName: "software",
 	},
 ];

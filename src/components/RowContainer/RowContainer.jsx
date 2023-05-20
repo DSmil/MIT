@@ -58,7 +58,7 @@ function RowContainer({ flag, data, scrollValue }) {
                         </Calories>
                         <PriceCont>
                             <Price>
-                                {item?.price}<PriceSpan > den.</PriceSpan>
+                                {item?.price}<PriceSpan > €.</PriceSpan>
                             </Price>
                         </PriceCont>
                     </TextCont>

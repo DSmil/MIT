@@ -11,7 +11,7 @@ export const BigContainer = styled.div`
 
 export const MainContainer = styled.div`
   width: 90%;
-  max-width: 50%;
+  max-width: 60%;
   /*border: 1px solid #ccc;*/
   border-radius: 0.5rem;
   padding: 1rem;
@@ -25,7 +25,7 @@ export const MainContainer = styled.div`
 
 export const TitleDiv = styled.div`
   width: 100%;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   border-bottom: 1px solid #D1D5DB;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@ export const TitleDiv = styled.div`
 
 export const Title = styled.p`
   color: "#7b8794";
-  font-size: 1.5rem;
+  font-size: 2rem;
 `;
 
 export const DivWrapper = styled.div`
@@ -46,10 +46,16 @@ export const DivWrapper = styled.div`
 
 export const Accepts = styled.div`
   width: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Declines = styled.div`
   width: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Div1 = styled.div`

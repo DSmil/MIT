@@ -31,7 +31,6 @@ export const RowCont = styled.div`
 export const ItemCont = styled.div`
   height: 185px;
   min-width: 275px;
-  margin-top: 20px;
   border-radius: 20px;
   padding-right: 20px;
   display: flex;
@@ -40,7 +39,8 @@ export const ItemCont = styled.div`
   justify-content: space-between;
   backdrop-filter: blur(20px);
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1); 
-  margin-bottom: 10px;
+  margin: 20px 10px; 
+  padding-bottom: 10px;
   &:hover {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }

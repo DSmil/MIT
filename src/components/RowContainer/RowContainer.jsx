@@ -53,9 +53,6 @@ function RowContainer({ flag, data, scrollValue }) {
                         <Title>
                             {item?.title}
                         </Title>
-                        <Calories>
-                            {item?.calories} Calories
-                        </Calories>
                         <PriceCont>
                             <Price>
                                 {item?.price}<PriceSpan > €.</PriceSpan>

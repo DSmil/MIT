@@ -39,17 +39,17 @@ export const heroData = [
 export const categories = [
 	{
 		id: 1,
-		name: "Television & Home Theater",
+		name: "TV",
 		urlParamName: "television-home-theater",
 	},
 	{
 		id: 2,
-		name: "Computers & Laptops",
+		name: "Computers",
 		urlParamName: "computers-laptops",
 	},
 	{
 		id: 3,
-		name: "Smartphones & Tablets",
+		name: "Smartphones",
 		urlParamName: "smartphones-tablets",
 	},
 	{
@@ -59,7 +59,7 @@ export const categories = [
 	},
 	{
 		id: 5,
-		name: "Cameras & Photography",
+		name: "Photography",
 		urlParamName: "cameras-photography",
 	},
 	{
@@ -69,17 +69,17 @@ export const categories = [
 	},
 	{
 		id: 7,
-		name: "Wearable Technology",
+		name: "Wearables",
 		urlParamName: "wearable-technology",
 	},
 	{
 		id: 8,
-		name: "Printers & Office Equipment",
+		name: "Office",
 		urlParamName: "printers-office-equipment",
 	},
 	{
 		id: 9,
-		name: "Components & Storage",
+		name: "Components",
 		urlParamName: "components-storage",
 	},
 ];

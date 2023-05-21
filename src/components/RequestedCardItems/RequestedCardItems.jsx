@@ -12,14 +12,17 @@ import {
 	Price,
 	TextDiv,
 	ImageDiv,
-	Image
+	Image,
 } from './style';
 
 const RequestedCardItems = ({ device, acceptItem, declineItem }) => {
 	return (
 		<Div1>
 			<ImageDiv>
-				
+				<Image
+					src={device?.imageURL}
+					alt=''
+				/>
 			</ImageDiv>
 			<TextDiv>
 				<NameDiv>
@@ -33,14 +36,15 @@ const RequestedCardItems = ({ device, acceptItem, declineItem }) => {
 				</PriceDiv>
 				{acceptItem && declineItem && (
 					<ButtonContainer>
-						<ButtonAccept onClick={() => acceptItem(device)}>Accept</ButtonAccept>
+						<ButtonAccept onClick={() => acceptItem(device)}>
+							Accept
+						</ButtonAccept>
 						<ButtonReject onClick={() => declineItem(device)}>
 							Reject
 						</ButtonReject>
 					</ButtonContainer>
 				)}
 			</TextDiv>
-				
 		</Div1>
 	);
 };

@@ -75,7 +75,6 @@ export const getAllRequestedData = async () => {
 };
 
 export const getAllDeclinedData = async (userId) => {
-	console.log(userId)
     const items = await getDocs(
         query(
             collection(firestore, 'declinedItems'), 
@@ -83,7 +82,6 @@ export const getAllDeclinedData = async (userId) => {
             orderBy('id', 'desc')
         )
     );
-	console.log(items)
 
     return items.docs.map((doc) => doc.data());
 };
@@ -96,6 +94,5 @@ export const getAllAcceptedData = async (userId) => {
             orderBy('id', 'desc')
         )
     );
-			console.log(items)
     return items.docs.map((doc) => doc.data());
 };

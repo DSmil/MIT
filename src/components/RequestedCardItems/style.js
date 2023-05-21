@@ -13,19 +13,15 @@ export const Div1 = styled.div`
 `;
 
 export const ImageDiv = styled.div`
-  width: 30%;
-  height: 100%;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
+  width: 50%;
   display: flex;
-  gap: 1rem;
 `;
 
 //is not working
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 export const TextDiv = styled.div`

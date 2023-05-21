@@ -30,7 +30,6 @@ const UserRequests = () => {
 	const userInfo = fetchUser();
 	const fetchData = async () => {
 		await getAllDeclinedData(userInfo.uid).then((data) => {
-            console.log(data)
 			dispatch({
 				type: actionType.SET_DECLINED_ITEMS,
 				declinedDevices: data,
@@ -38,7 +37,6 @@ const UserRequests = () => {
 		});
 
 		await getAllAcceptedData(userInfo.uid).then((data) => {
-            console.log(data)
 			dispatch({
 				type: actionType.SET_ACCEPTED_ITEMS,
 				acceptedDevices: data,

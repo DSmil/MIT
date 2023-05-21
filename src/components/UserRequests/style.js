@@ -7,6 +7,7 @@ export const BigContainer = styled.div`
   align-items: flex-start; /* Align items to the top */
   justify-content: center;
   padding-top: 15vh;
+  background-color: ${props => props.theme.colors.mainPageColor};
 `;
 
 export const MainContainer = styled.div`

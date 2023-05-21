@@ -7,6 +7,7 @@ export const BigContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${props => props.theme.colors.mainPageColor};
 `;
 
 export const MainContainer = styled.div`

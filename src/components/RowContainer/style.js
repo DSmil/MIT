@@ -29,18 +29,18 @@ export const RowCont = styled.div`
 `;
 
 export const ItemCont = styled.div`
-  width: 275px;
   height: 185px;
   min-width: 275px;
-  margin-top: 12px;
-  background-color: "rgba(256,256,256,0.4)";
+  margin-top: 20px;
   border-radius: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(20px);
-
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 10px;
   &:hover {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
@@ -76,10 +76,10 @@ export const CartSymbol = styled(motion.div)`
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: #f00;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${props => props.theme.colors.categoryInnerCircle};
   cursor: pointer;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
   margin-top: -8px;

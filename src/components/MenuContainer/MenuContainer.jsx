@@ -1,70 +1,67 @@
-import React, { useState } from 'react'
-import { IoFastFood } from 'react-icons/io5'
-import { categories } from 'utils/data'
-import { motion } from "framer-motion"
-import { RowContainer } from "components/index"
-import { useStateValue } from 'context/StateProvider'
-import "./style.css"
-//import {CustomClass} from "./style.js"
+import React, { useState } from 'react';
+import { FaRegListAlt } from 'react-icons/fa';
+import { categories } from 'utils/data';
+import { RowContainer } from 'components/index';
+import { useStateValue } from 'context/StateProvider';
+import {
+	StyledCategoryText,
+	CategoryCircle,
+	CategoryContainer,
+	StyledCategoryTextContainer,
+	ScrolliDiv,
+	MakesP,
+	OuterContainer,
+	SectionWrapper,
+  StyledIcon,
+} from './style.js';
 
 function MenuContainer() {
+	const [filter, setfilter] = useState('television-home-theater');
 
-    const [filter, setfilter] = useState("chicken")
+	const [{ acceptedDevices }, dispatch] = useStateValue();
+	const [isHovered, setIsHovered] = useState(null);
 
-    const [{ acceptedDevices }, dispatch] = useStateValue()
+	return (
+		<SectionWrapper id='menu'>
+			<OuterContainer>
+				<MakesP> Our Categories</MakesP>
 
-    const baseClassName = 'w-10 h-10 rounded-full shadow-lg flex items-center justify-center';
-    const activeClassName = 'bg-white';
-    const inactiveClassName = 'bg-cartNumBg';
+				<ScrolliDiv>
+					{categories &&
+						categories.map((category) => (
+							<CategoryContainer
+								whileTap={{ scale: 0.75 }}
+								key={category.id}
+								active={filter === category.urlParamName}
+								onMouseEnter={() => setIsHovered(category.urlParamName)}
+								onMouseLeave={() => setIsHovered(null)}
+								onClick={() => setfilter(category.urlParamName)}
+							>
+								<CategoryCircle active={filter === category.urlParamName} hovered={isHovered === category.urlParamName}>
+									<StyledIcon active={filter === category.urlParamName}  hovered={isHovered === category.urlParamName}
+									/>
+								</CategoryCircle>
+								<StyledCategoryTextContainer>
+									<StyledCategoryText
+										active={filter === category.urlParamName}
+                    hovered={isHovered === category.urlParamName}
+									>
+										{category.name}
+									</StyledCategoryText>
+								</StyledCategoryTextContainer>
+							</CategoryContainer>
+						))}
+				</ScrolliDiv>
 
-    return (
-      <section className="sectionn" id="menu">
-        <div className="outerLayer">
-          <p className="makes"> Our Categories
-          </p>
-  
-          <div className="scrolli">
-            {categories &&
-              categories.map((category) => (
-                <motion.div
-                  whileTap={{ scale: 0.75 }}
-                  key={category.id}
-                  className="custom-class"
-                  onClick={() => setfilter(category.urlParamName)}
-                >
-                  <div
-                    className={`${baseClassName} ${filter === category.urlParamName ? activeClassName : inactiveClassName} group-hover:bg-white`}
-                  >
-                    <IoFastFood
-                      className={`${
-                        filter === category.urlParamName
-                          ? "text-textColor"
-                          : "text-white"
-                      } group-hover:text-textColor text-lg`}
-                    />
-                  </div>
-                  <p
-                    className={`text-sm ${
-                      filter === category.urlParamName
-                        ? "text-white"
-                        : "text-textColor"
-                    } group-hover:text-white`}
-                  >
-                    {category.name}
-                  </p>
-                </motion.div>
-              ))}
-          </div>
-  
-          <div className="sectionn">
-            <RowContainer
-              flag={false}
-              data={acceptedDevices?.filter((n) => n.category === filter)}
-            />
-          </div>
-        </div>
-      </section>
-    )
+				<div className='sectionn'>
+					<RowContainer
+						flag={false}
+						data={acceptedDevices?.filter((n) => n.category === filter)}
+					/>
+				</div>
+			</OuterContainer>
+		</SectionWrapper>
+	);
 }
 
-export default MenuContainer
+export default MenuContainer;

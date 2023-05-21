@@ -2,10 +2,38 @@ import styled from "styled-components"
 
 export const Div1 = styled.div`
   width: 80%;
-  height: 270px;
+  height: 320px;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 10px 0px;
+`;
+
+export const ImageDiv = styled.div`
+  width: 30%;
+  height: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+`;
+
+//is not working
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const TextDiv = styled.div`
+  width: 70%;
+  height: 100%;
+  
+  border-radius: 0.5rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -30,7 +58,6 @@ export const DescrDiv = styled.div`
   height: 80px;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  margin-bottom:30px;
   display: flex;
   align-items: top;
   gap: 1rem;
@@ -38,6 +65,23 @@ export const DescrDiv = styled.div`
 `;
 
 export const DescrOfRequest = styled.p`
+  color: "#7b8794";
+  margin:0;
+
+`;
+
+export const PriceDiv = styled.div`
+  width: 100%;
+  height: 40px;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom:15px;
+  display: flex;
+  align-items: top;
+  gap: 1rem;
+`;
+
+export const Price = styled.p`
   color: "#7b8794";
   margin:0;
 

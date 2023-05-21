@@ -29,6 +29,7 @@
   justify-content: flex-start;
   gap: 8px;
   padding-top: 10px;
+  margin-top: 40px;
   /* Internet Explorer and Edge */
   ::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */

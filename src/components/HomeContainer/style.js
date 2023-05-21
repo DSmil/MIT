@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { motion } from "framer-motion"
 
 export const ButtonOrderNow = styled.button`
   background-image: linear-gradient(to bottom right, #FF7316, #FFA20E);
@@ -37,61 +36,30 @@ export const Title = styled.p`
 
 export const TitleSpan = styled.span`
   font-size: 3rem;
-  color: #f97316; /* equivalent to text-orange-600 */
+  color: #f97316; 
   @media (min-width: 1024px) {
     font-size: 5rem;
   }
 `;
 
-export const ImageDelivery = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-`;
-
-export const ImageDiv = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 1px 5px;
-  background-color: #ffffff; /* equivalent to bg-white */
-  border-radius: 50%; /* equivalent to rounded-full */
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* equivalent to drop-shadow-xl */
-`;
-
-export const DeliveryText = styled.p`
-  font-size: 1.1rem; /* equivalent to text-base */
-  color: #ff9800; /* equivalent to text-orange-500 */
-  font-weight: 600; /* equivalent to font-semibold */
-`;
-
-export const DeliveryDiv = styled.div`
-  display: flex; /* equivalent to flex */
-  align-items: center; /* equivalent to items-center */
-  justify-content: center; /* equivalent to justify-center */
-  background-color: #ffe0b2; /* equivalent to bg-orange-100 */
-  padding: 0.25rem 1rem; /* equivalent to px-4 py-1 */
-  border-radius: 9999px; /* equivalent to rounded-full */
-`;
-
 export const LeftContainer = styled.div`
-  padding-top: 0.5rem; /* equivalent to py-2 */
-  flex: 1; /* equivalent to flex-1 */
-  gap: 1.5rem; /* equivalent to gap-6 */
-  display: flex; /* equivalent to flex */
-  flex-direction: column; /* equivalent to flex-col */
-  align-items: flex-start; /* equivalent to items-start */
+  padding-top: 0.5rem; 
+  flex: 1; 
+  gap: 1.5rem; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
 `;
 
 export const WholeContainer = styled.section`
   padding-top:100px;
-  display: grid; /* equivalent to grid */
-  grid-template-columns: repeat(1, minmax(0, 1fr)); /* equivalent to grid-cols-1 */
-  gap: 0.5rem; /* equivalent to gap-2 */
-  width: 100%; /* equivalent to w-full */
+  display: grid; 
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.5rem; 
+  width: 100%; 
   margin-left: 20px;
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* equivalent to md:grid-cols-2 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 `;
 
@@ -169,7 +137,7 @@ export const ImagesName = styled.p`
   margin-top: 0.5rem;
   
   @media (min-width: 1024px) {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     margin-top: 1rem;
   }
 `;

@@ -78,11 +78,11 @@ const CartContainer = () => {
                     <CartTotalDiv>
                         <SubTotalDiv >
                             <SubTotalText>Sub Total</SubTotalText>
-                            <SubTotalPrice>{tot} den.</SubTotalPrice>
+                            <SubTotalPrice>{tot} €.</SubTotalPrice>
                         </SubTotalDiv>
                         <Delivery>
                             <DeliveryText>Delivery</DeliveryText>
-                            <DeliveryPrice>100 den.</DeliveryPrice>
+                            <DeliveryPrice>10 €.</DeliveryPrice>
                         </Delivery>
 
                         <Border></Border>
@@ -90,7 +90,7 @@ const CartContainer = () => {
                         <TotalDiv>
                             <TotalText>Total</TotalText>
                             <TotalPrice>
-                                {tot + 100} den.
+                                {tot + 10} €.
                             </TotalPrice>
                         </TotalDiv>
 

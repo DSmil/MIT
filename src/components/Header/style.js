@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 100px;
   padding: 3px 4px;
-  background-color: #f5f3f3;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 80%, rgba(255, 255, 255, 0.9) 80%, rgba(255, 255, 255, 0.7) 100%);
   @media (min-width: 768px) {
     padding: 6px 16px;
   }

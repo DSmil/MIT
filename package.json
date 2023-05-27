@@ -1,6 +1,6 @@
 {
+	"homepage": "http://DSmil.github.io/MIT",
 	"name": "restourant_react_app",
-	"homepage": "http://DSmil.github.io/Retaurantapp",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -48,7 +48,7 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.13",
-		"gh-pages": "^4.0.0",
+		"gh-pages": "^5.0.0",
 		"postcss": "^8.4.18",
 		"tailwindcss": "^3.2.2"
 	},

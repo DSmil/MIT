@@ -24,14 +24,14 @@ function App() {
 			});
 		});
 
-		await getAllAcceptedData(userInfo.uid).then((data) => {
+		await getAllAcceptedData(userInfo?.uid).then((data) => {
 			dispatch({
 				type: actionType.SET_ACCEPTED_ITEMS,
 				acceptedDevices: data,
 			});
 		});
 
-		await getAllDeclinedData(userInfo.uid).then((data) => {
+		await getAllDeclinedData(userInfo?.uid).then((data) => {
 			dispatch({
 				type: actionType.SET_DECLINED_ITEMS,
 				declinedDevices: data,

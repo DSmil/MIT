@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { BiFontSize } from "react-icons/bi";
 
 export const RowCont = styled.div`
   width: 100%;
@@ -148,3 +149,30 @@ export const TextNotAvailable = styled.p`
   margin-top: 16px; /* or any other desired margin */
   margin-bottom: 8px; /* or any other desired margin */
 `;
+
+export const PopupTitle = styled.h2`
+  padding: 10px 20px 10px 0;
+`;
+
+export const PopupDescription = styled.p`
+  size: 18px;
+  padding-bottom: 20px;
+`;
+
+export const PopupPrice = styled.p`
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+`;
+
+export const PopupContent = styled.div`
+  display: flex;
+`;
+
+export const PopupImage = styled(motion.img)`
+  height: 50%;
+  margin-right: 20px;
+  width: 40%;
+
+`;
+

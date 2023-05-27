@@ -60,7 +60,7 @@ function Header() {
                         src={Logo}
                         alt="Logo"
                     />
-                    <LogoText>Gostilnica Cuna</LogoText>
+                    <LogoText>Tech Deal</LogoText>
                 </LogoLink>
 
                 <BigDiv>

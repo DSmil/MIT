@@ -30,8 +30,9 @@ export const PopUpContainer = styled.div`
 `;
 
 export const CloseButton = styled.button`
-  margin: 0 auto;
-  display: block;
+  position: absolute;
+  right: 20px; // adjust this value for horizontal padding
+  top: 20px; // adjust this value for vertical position
   width: 100%;
   max-width: 100px;
   border: none;
@@ -52,3 +53,4 @@ export const CloseButton = styled.button`
       0 4px 8px rgba(0, 0, 0, 0.05), 0 8px 16px rgba(0, 0, 0, 0.05);
   }
 `;
+

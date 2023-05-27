@@ -3,9 +3,12 @@ import { MdShoppingBasket } from "react-icons/md"
 import NotFound from "assets/img/NotFound.svg"
 import { useStateValue } from 'context/StateProvider';
 import { actionType } from 'context/reducer';
+import {PopUp} from 'components';
 import {RowCont, GetItems, ItemCont, Motion, Image, CartSymbol, TextNotAvailable, ImageNotAvailable, ContNotAvailable, TextCont, Title, PriceSpan, Price, PriceCont, Calories} from "./style";
 
 function RowContainer({ flag, data, scrollValue }) {
+    
+	const [isOpen, setIsOpen] = useState(false);
 
     const rowContainer = useRef()
 
@@ -13,6 +16,15 @@ function RowContainer({ flag, data, scrollValue }) {
 
 
     const [{ cartItems }, dispatch] = useStateValue()
+
+    const OpenPopUp = () => {
+		setIsOpen(true);
+	}
+
+	const ClosePopUp = () => {
+		setIsOpen(false);
+	}
+
 
     const addToCart = () => {
 
@@ -35,7 +47,7 @@ function RowContainer({ flag, data, scrollValue }) {
             {data && data.length > 0 ? data.map(item => (
                 <ItemCont key={item.id}>
                     <GetItems>
-                        <Motion whileHover={{ scale: 1.2 }}>
+                        <Motion whileHover={{ scale: 1.2 }} onClick={OpenPopUp}>
                             <Image
                                 src={item?.imageURL}
                                 alt=""
@@ -48,7 +60,7 @@ function RowContainer({ flag, data, scrollValue }) {
                             <MdShoppingBasket className="text-white" />
                         </CartSymbol>
                     </GetItems>
-
+                
                     <TextCont>
                         <Title>
                             {item?.title}
@@ -64,6 +76,13 @@ function RowContainer({ flag, data, scrollValue }) {
                     <ImageNotAvailable src={NotFound} />
                     <TextNotAvailable>Items Not Available</TextNotAvailable>
                 </ContNotAvailable>}
+                <div>
+					<PopUp isOpen={isOpen} onClose={ClosePopUp}>
+                        <h2>hello world</h2>
+                                
+                        <p>this is the context of the pop up</p>
+                    </PopUp>
+			    </div>
         </RowCont>
     )
 }

@@ -8,6 +8,7 @@ import {
 	getAllRequestedData,
 	getAllAcceptedData,
 	getAllDeclinedData,
+	getAllAcceptedPageData,
 } from 'utils/firebaseFunctions';
 import { actionType } from 'context/reducer';
 import { fetchUser } from 'utils/fetchLocalStorageData';
@@ -24,17 +25,10 @@ function App() {
 			});
 		});
 
-		await getAllAcceptedData(userInfo?.uid).then((data) => {
+		await getAllAcceptedPageData().then((data) => {
 			dispatch({
-				type: actionType.SET_ACCEPTED_ITEMS,
-				acceptedDevices: data,
-			});
-		});
-
-		await getAllDeclinedData(userInfo?.uid).then((data) => {
-			dispatch({
-				type: actionType.SET_DECLINED_ITEMS,
-				declinedDevices: data,
+				type: actionType.SET_ALL_ACCEPTED_ITEMS,
+				allAcceptedDevices: data,
 			});
 		});
 	};

@@ -3,7 +3,6 @@ import {Background, PopUpContainer, CloseButton} from './style';
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
-  console.log(children)
   return (
     <Background>
       <PopUpContainer>

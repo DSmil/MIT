@@ -35,7 +35,7 @@ export const LogoLink = styled(Link)`
 `;
 
 export const LogoImage = styled.img`
-  width: 2rem;
+  width: 5.5rem;
   object-fit: cover;
 `;
 

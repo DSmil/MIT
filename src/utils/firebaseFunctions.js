@@ -31,37 +31,37 @@ export const saveItem = async (data) => {
 
 export const acceptItem = async (data) => {
 	if (data.id) {
-	  // Use data.id as the document ID in Firestore.
-	  await setDoc(doc(firestore, "acceptedItems", data.id), data, {
-		merge: true,
-	  });
-  
-	  try {
-		// Delete the document from requestItems collection.
-		await deleteDoc(doc(firestore, "requestItems", data.id));
-	  } catch (error) {
-		console.error("Error deleting document: ", error);
-	  }
+		// Use data.id as the document ID in Firestore.
+		await setDoc(doc(firestore, 'acceptedItems', data.id), data, {
+			merge: true,
+		});
+
+		try {
+			// Delete the document from requestItems collection.
+			await deleteDoc(doc(firestore, 'requestItems', data.id));
+		} catch (error) {
+			console.error('Error deleting document: ', error);
+		}
 	} else {
-	  console.error("No id in data");
+		console.error('No id in data');
 	}
 };
 
 export const declineItem = async (data) => {
 	if (data.id) {
-	  // Use data.id as the document ID in Firestore.
-	  await setDoc(doc(firestore, "declinedItems", data.id), data, {
-		merge: true,
-	  });
-  
-	  try {
-		// Delete the document from requestItems collection.
-		await deleteDoc(doc(firestore, "requestItems", data.id));
-	  } catch (error) {
-		console.error("Error deleting document: ", error);
-	  }
+		// Use data.id as the document ID in Firestore.
+		await setDoc(doc(firestore, 'declinedItems', data.id), data, {
+			merge: true,
+		});
+
+		try {
+			// Delete the document from requestItems collection.
+			await deleteDoc(doc(firestore, 'requestItems', data.id));
+		} catch (error) {
+			console.error('Error deleting document: ', error);
+		}
 	} else {
-	  console.error("No id in data");
+		console.error('No id in data');
 	}
 };
 
@@ -75,24 +75,31 @@ export const getAllRequestedData = async () => {
 };
 
 export const getAllDeclinedData = async (userId) => {
-    const items = await getDocs(
-        query(
-            collection(firestore, 'declinedItems'), 
-            where('userId', '==', userId), 
-            orderBy('id', 'desc')
-        )
-    );
+	const items = await getDocs(
+		query(
+			collection(firestore, 'declinedItems'),
+			where('userId', '==', userId),
+			orderBy('id', 'desc')
+		)
+	);
 
-    return items.docs.map((doc) => doc.data());
+	return items.docs.map((doc) => doc.data());
 };
 
 export const getAllAcceptedData = async (userId) => {
-    const items = await getDocs(
-        query(
-            collection(firestore, 'acceptedItems'), 
-            where('userId', '==', userId), 
-            orderBy('id', 'desc')
-        )
-    );
-    return items.docs.map((doc) => doc.data());
+	const items = await getDocs(
+		query(
+			collection(firestore, 'acceptedItems'),
+			where('userId', '==', userId),
+			orderBy('id', 'desc')
+		)
+	);
+	return items.docs.map((doc) => doc.data());
+};
+
+export const getAllAcceptedPageData = async () => {
+	const items = await getDocs(
+		query(collection(firestore, 'acceptedItems'), orderBy('id', 'desc'))
+	);
+	return items.docs.map((doc) => doc.data());
 };

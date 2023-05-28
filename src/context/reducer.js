@@ -1,11 +1,12 @@
 export const actionType = {
-	SET_USER: "SET_USER",
-	SET_DEVICE_ITEMS: "SET_DEVICE_ITEMS",
-	SET_CART_SHOW: "SET_CART_SHOW",
-	SET_CARTITEMS: "CARTITEMS",
-	SET_REQUESTED_ITEMS: "SET_REQUESTED_ITEMS",
-	SET_ACCEPTED_ITEMS: "SET_ACCEPTED_ITEMS",
-	SET_DECLINED_ITEMS: "SET_DECLINED_ITEMS",
+	SET_USER: 'SET_USER',
+	SET_DEVICE_ITEMS: 'SET_DEVICE_ITEMS',
+	SET_CART_SHOW: 'SET_CART_SHOW',
+	SET_CARTITEMS: 'CARTITEMS',
+	SET_REQUESTED_ITEMS: 'SET_REQUESTED_ITEMS',
+	SET_ACCEPTED_ITEMS: 'SET_ACCEPTED_ITEMS',
+	SET_DECLINED_ITEMS: 'SET_DECLINED_ITEMS',
+	SET_ALL_ACCEPTED_ITEMS: 'SET_ALL_ACCEPTED_ITEMS',
 };
 
 const reducer = (state, action) => {
@@ -35,17 +36,22 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				requestedDevices: action.requestedDevices,
-			}
+			};
 		case actionType.SET_ACCEPTED_ITEMS:
 			return {
 				...state,
 				acceptedDevices: action.acceptedDevices,
-			}
+			};
 		case actionType.SET_DECLINED_ITEMS:
 			return {
 				...state,
 				declinedDevices: action.declinedDevices,
-			}
+			};
+		case actionType.SET_ALL_ACCEPTED_ITEMS:
+			return {
+				...state,
+				allAcceptedDevices: action.allAcceptedDevices,
+			};
 		default:
 			return state;
 	}

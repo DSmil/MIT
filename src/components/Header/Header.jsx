@@ -80,7 +80,6 @@ function Header() {
 						src={Logo}
 						alt='Logo'
 					/>
-					<LogoText>Tech Deal</LogoText>
 				</LogoLink>
 
 				<BigDiv>

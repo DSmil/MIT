@@ -18,7 +18,7 @@ import {
 function MenuContainer() {
 	const [filter, setfilter] = useState('television-home-theater');
 
-	const [{ acceptedDevices }, dispatch] = useStateValue();
+	const [{ allAcceptedDevices }, dispatch] = useStateValue();
 	const [isHovered, setIsHovered] = useState(null);
 
 	return (
@@ -56,7 +56,7 @@ function MenuContainer() {
 				<div className='sectionn'>
 					<RowContainer
 						flag={false}
-						data={acceptedDevices?.filter((n) => n.category === filter)}
+						data={allAcceptedDevices?.filter((n) => n.category === filter)}
 					/>
 				</div>
 			</OuterContainer>

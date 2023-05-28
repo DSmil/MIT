@@ -1,148 +1,150 @@
-import { React, useState } from "react";
-import { MdShoppingBasket, MdAdd, MdLogout, MdHome, MdAdminPanelSettings, MdRequestPage } from "react-icons/md";
-import { motion } from "framer-motion";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { app } from "firebase.config";
-import Logo from "assets/img/logo.png";
-import Avatar from "assets/img/avatar.png";
-import { Link } from "react-router-dom";
-import { useStateValue } from "context/StateProvider";
-import { actionType } from "context/reducer";
-import { StyledHeader, DesktopContainer, LogoLink, LogoImage, LogoText, BigDiv, List, ListItems, MotionDivCart, DivInsideCart, ParInsideDiv, MotionDivNewItemLogout, NewItemLink, NewItem, AvatarImg, AvatarDiv} from "./style";
+import { React, useState } from 'react';
+import {
+	MdShoppingBasket,
+	MdAdd,
+	MdLogout,
+	MdHome,
+	MdAdminPanelSettings,
+	MdRequestPage,
+} from 'react-icons/md';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { app } from 'firebase.config';
+import Logo from 'assets/img/logo.png';
+import Avatar from 'assets/img/avatar.png';
+import { useStateValue } from 'context/StateProvider';
+import { actionType } from 'context/reducer';
+import {
+	StyledHeader,
+	DesktopContainer,
+	LogoLink,
+	LogoImage,
+	LogoText,
+	BigDiv,
+	MotionDivCart,
+	DivInsideCart,
+	ParInsideDiv,
+	MotionDivNewItemLogout,
+	NewItemLink,
+	NewItem,
+	AvatarImg,
+	AvatarDiv,
+} from './style';
 
 function Header() {
-    const firebaseAuth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+	const firebaseAuth = getAuth(app);
+	const provider = new GoogleAuthProvider();
 
-    const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
+	const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
-    const [isMenu, setItemMenu] = useState(false);
+	const [isMenu, setItemMenu] = useState(false);
 
-    const login = async () => {
-        if (!user) {
-            const {
-                user: { refreshToken, providerData },
-            } = await signInWithPopup(firebaseAuth, provider);
-            dispatch({
-                type: actionType.SET_USER,
-                user: providerData[0],
-            });
-            localStorage.setItem("user", JSON.stringify(providerData[0]));
-        } else {
-            setItemMenu(!isMenu);
-        }
-    };
+	const login = async () => {
+		if (!user) {
+			const {
+				user: { refreshToken, providerData },
+			} = await signInWithPopup(firebaseAuth, provider);
+			dispatch({
+				type: actionType.SET_USER,
+				user: providerData[0],
+			});
+			localStorage.setItem('user', JSON.stringify(providerData[0]));
+		} else {
+			setItemMenu(!isMenu);
+		}
+	};
 
-    const logout = () => {
-        setItemMenu(false);
-        localStorage.clear();
-        dispatch({
-            type: actionType.SET_USER,
-            user: null,
-        });
-    };
+	const logout = () => {
+		setItemMenu(false);
+		localStorage.clear();
+		dispatch({
+			type: actionType.SET_USER,
+			user: null,
+		});
+	};
 
-    const showCart = () => {
-        dispatch({
-            type: actionType.SET_CART_SHOW,
-            cartShow: !cartShow,
-        });
-    }
-    return (
-        <StyledHeader>
-            {/* desktop & tablet */}
-            <DesktopContainer>
-                <LogoLink
-                    to={"/"}
-                    whileTap={{ scale: 0.6 }}
-                >
-                    <LogoImage
-                        src={Logo}
-                        alt="Logo"
-                    />
-                    <LogoText>Tech Deal</LogoText>
-                </LogoLink>
+	const showCart = () => {
+		dispatch({
+			type: actionType.SET_CART_SHOW,
+			cartShow: !cartShow,
+		});
+	};
+	return (
+		<StyledHeader>
+			{/* desktop & tablet */}
+			<DesktopContainer>
+				<LogoLink
+					to={'/'}
+					whileTap={{ scale: 0.6 }}
+				>
+					<LogoImage
+						src={Logo}
+						alt='Logo'
+					/>
+					<LogoText>Tech Deal</LogoText>
+				</LogoLink>
 
-                <BigDiv>
-                    
+				<BigDiv>
+					<MotionDivCart
+						whileTap={{ scale: 0.6 }}
+						onClick={showCart}
+					>
+						<MdShoppingBasket className='text-textColor text-2xl ml-8 cursor-pointer' />
+						{cartItems && cartItems.length > 0 && (
+							<DivInsideCart>
+								<ParInsideDiv>{cartItems.length}</ParInsideDiv>
+							</DivInsideCart>
+						)}
+					</MotionDivCart>
 
-                    <MotionDivCart
-                        whileTap={{ scale: 0.6 }}
-                        onClick={showCart}
-                    >
-                        <MdShoppingBasket className="text-textColor text-2xl ml-8 cursor-pointer" />
-                        {cartItems && cartItems.length > 0 && (
-                            <DivInsideCart>
-                                <ParInsideDiv>{cartItems.length}</ParInsideDiv>
-                            </DivInsideCart>
-                        )}
-                    </MotionDivCart>
+					<AvatarDiv>
+						<AvatarImg
+							whileTap={{ scale: 0.6 }}
+							src={user ? user?.photoURL : Avatar}
+							alt='userprofile'
+							onClick={login}
+						/>
+						{isMenu && (
+							<MotionDivNewItemLogout
+								initial={{
+									opacity: 0,
+									scale: 0.6,
+								}}
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 0.6 }}
+							>
+								<NewItemLink to='/*'>
+									<NewItem onClick={() => setItemMenu(false)}>
+										Home <MdHome />
+									</NewItem>
+								</NewItemLink>
+								<NewItemLink to='/createItem'>
+									<NewItem onClick={() => setItemMenu(false)}>
+										Upload Item <MdAdd />
+									</NewItem>
+								</NewItemLink>
+								{user && user.email === 'mitproject77@gmail.com' && (
+									<NewItemLink to='/admin'>
+										<NewItem onClick={() => setItemMenu(false)}>
+											Admin Page <MdAdminPanelSettings />
+										</NewItem>
+									</NewItemLink>
+								)}
+								<NewItemLink to='/userRequests'>
+									<NewItem onClick={() => setItemMenu(false)}>
+										My Requests <MdRequestPage />
+									</NewItem>
+								</NewItemLink>
 
-                    <AvatarDiv>
-                        <AvatarImg
-                            whileTap={{ scale: 0.6 }}
-                            src={user ? user?.photoURL : Avatar}
-                            alt="userprofile"
-                            onClick={login}
-                        />
-                        {isMenu && (
-                            <MotionDivNewItemLogout
-                                initial={{
-                                    opacity: 0,
-                                    scale: 0.6,
-                                }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.6 }}
-                            >
-                                {user && user.email === "mitproject77@gmail.com" && (
-                                    <NewItemLink to="/*">
-                                        <NewItem
-                                            onClick={() => setItemMenu(false)}
-                                        >
-                                            Home <MdHome />
-                                        </NewItem>
-                                    </NewItemLink>
-                                )}
-                                {user && user.email === "mitproject77@gmail.com" && (
-                                    <NewItemLink to="/createItem">
-                                        <NewItem
-                                            onClick={() => setItemMenu(false)}
-                                        >
-                                            Upload Item <MdAdd />
-                                        </NewItem>
-                                    </NewItemLink>
-                                )}
-                                {user && user.email === "mitproject77@gmail.com" && (
-                                    <NewItemLink to="/admin">
-                                        <NewItem
-                                            onClick={() => setItemMenu(false)}
-                                        >
-                                            Admin Page <MdAdminPanelSettings />
-                                        </NewItem>
-                                    </NewItemLink>
-                                    
-                                )}{user && user.email === "mitproject77@gmail.com" && (
-                                    <NewItemLink to="/userRequests">
-                                        <NewItem
-                                            onClick={() => setItemMenu(false)}
-                                        >
-                                            My Requests <MdRequestPage />
-                                        </NewItem>
-                                    </NewItemLink>
-                                    
-                                )}
-                                <NewItem
-                                    onClick={logout}
-                                >
-                                    Logout <MdLogout></MdLogout>
-                                </NewItem>
-                            </MotionDivNewItemLogout>
-                        )}
-                    </AvatarDiv>
-                </BigDiv>
-            </DesktopContainer>
+								<NewItem onClick={logout}>
+									Logout <MdLogout></MdLogout>
+								</NewItem>
+							</MotionDivNewItemLogout>
+						)}
+					</AvatarDiv>
+				</BigDiv>
+			</DesktopContainer>
 
-            {/* mobile 
+			{/* mobile 
             <div className="flex item-center justify-between md:hidden w-full h-full ">
                 <motion.div
                     whileTap={{ scale: 0.6 }}
@@ -238,8 +240,8 @@ function Header() {
                     )}
                 </div>
             </div>*/}
-        </StyledHeader>
-    );
+		</StyledHeader>
+	);
 }
 
 export default Header;

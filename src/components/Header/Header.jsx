@@ -29,6 +29,7 @@ import {
 	AvatarImg,
 	AvatarDiv,
 } from './style';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
 	const firebaseAuth = getAuth(app);
@@ -53,14 +54,17 @@ function Header() {
 		}
 	};
 
-	const logout = () => {
-		setItemMenu(false);
-		localStorage.clear();
-		dispatch({
-			type: actionType.SET_USER,
-			user: null,
-		});
-	};
+    const navigate = useNavigate();
+
+    const logout = () => {
+      setItemMenu(false);
+      localStorage.clear();
+      dispatch({
+        type: actionType.SET_USER,
+        user: null,
+      });
+      navigate('/'); // redirect to home page
+    };
 
 	const showCart = () => {
 		dispatch({

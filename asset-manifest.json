@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MIT/static/css/main.b4b7a6f6.css",
-    "main.js": "/MIT/static/js/main.966ff5dd.js",
+    "main.js": "/MIT/static/js/main.58d2802e.js",
     "static/media/L2_SAMSUNG.png": "/MIT/static/media/L2_SAMSUNG.3a12c914b8beefb8fc78.png",
     "static/media/L4_Lenovo.png": "/MIT/static/media/L4_Lenovo.d0fb7cd32562b09700d9.png",
     "static/media/L3_ACER.png": "/MIT/static/media/L3_ACER.ce8d017b04723a1c7abd.png",
@@ -13,10 +13,10 @@
     "static/media/NotFound.svg": "/MIT/static/media/NotFound.4e90bb93460bfd8d9e2c86b42ef91a4a.svg",
     "index.html": "/MIT/index.html",
     "main.b4b7a6f6.css.map": "/MIT/static/css/main.b4b7a6f6.css.map",
-    "main.966ff5dd.js.map": "/MIT/static/js/main.966ff5dd.js.map"
+    "main.58d2802e.js.map": "/MIT/static/js/main.58d2802e.js.map"
   },
   "entrypoints": [
     "static/css/main.b4b7a6f6.css",
-    "static/js/main.966ff5dd.js"
+    "static/js/main.58d2802e.js"
   ]
 }
